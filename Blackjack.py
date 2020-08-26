@@ -7,21 +7,25 @@ a = current = hand.pop()
 x = current = hand.pop()
 print('You wanna play?')
 count = a + x
+bet = int(input('Place your bet ₽: '))
 print('You were given two cards in total', a, 'and', x)
 
-while True:
+while count <= 21:
     choice = input('Need another card? y/n \n')
     if choice == 'y':
         current = hand.pop()
         print('You got the card %d' % current)
         count += current
         if count > 21:
-            print('You typed %d points and lost' % count)
+            print('You have scored %d points' % count)
+            print('Your bet is lost:', bet)
         elif count == 21:
-            print('You have blackjack')
+            print('You have blackjack!!!')
+            print('Your winnings: ', bet * 1,5)
             break
         else:
             print('You have %d points' % count)
     elif choice == 'n':
         print('Finished the game with %d points' % count)
+        print('Your winnings: ', bet * 2)
         break
