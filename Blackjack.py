@@ -31,6 +31,9 @@ while player < 21:
         if player > 21:
             print('You have scored %d points' % player)
             print('--- Your bet is lost:', bet)
+        elif player == 21:
+            print('Finished the game with %d points' % player)
+            print('+++ Your winnings: ', bet * 2)
         else:
             print('You have %d points' % player)
     elif choice == 'n':
