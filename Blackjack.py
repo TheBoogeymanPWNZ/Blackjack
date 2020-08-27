@@ -5,27 +5,55 @@ random.shuffle(hand)
 
 a = current = hand.pop()
 x = current = hand.pop()
+b = current = hand.pop()
+c = current = hand.pop()
+
 print('You wanna play?')
-count = a + x
-croupier = a + x
+player = a + x
+croupier = b + c
 bet = int(input('Place your bet ₽: '))
 print('You were given two cards in total', a, 'and', x)
-while count <= 21:
+print('The dealer took two cards, one of which', b)
+
+if player == 21:
+    print('You have blackjack!!!')
+    print('Your winnings: ', bet * 1.5)
+elif player > 21:
+    print('You have scored %d points' % player)
+    print('--- Your bet is lost:', bet)
+
+while player < 21:
     choice = input('Need another card? y/n \n')
-    if count == 21:
-        print('You have blackjack!!!')
-        print('Your winnings: ', bet * 1.5)
-        break
     if choice == 'y':
         current = hand.pop()
         print('You got the card %d' % current)
-        count += current
-        if count > 21:
-            print('You have scored %d points' % count)
+        player += current
+        if player > 21:
+            print('You have scored %d points' % player)
             print('--- Your bet is lost:', bet)
         else:
-            print('You have %d points' % count)
+            print('You have %d points' % player)
     elif choice == 'n':
-        print('Finished the game with %d points' % count)
-        print('+++ Your winnings: ', bet * 2)
-        break
+        print('The dealer reveals the second card', b, 'and', c)
+    while choice == 'n':
+        if croupier < 17:
+            current = hand.pop()
+            print('The dealer draws a card %d ' % current)
+            croupier += current
+        elif croupier > 21:
+            print('The dealer is too busy %d' % croupier)
+            print('Finished the game with %d points' % player)
+            print('+++ Your winnings: ', bet * 2)
+            break
+        elif player == croupier:
+            print("Exactly!!!")
+            print('Finished the game with %d points' % player)
+            break
+        elif player < croupier:
+            print('The dealer scored %d' % croupier)
+            print('--- Your bet is lost:', bet)
+            break
+        elif player > croupier:
+            print('Finished the game with %d points' % player)
+            print('+++ Your winnings: ', bet * 2)
+            break
