@@ -14,11 +14,11 @@ while bank >= 0:
 
     print('Available for bet', bank)
     print('You wanna play?')
-    player = 0
-    croupier = 0
+    player = None
+    croupier = None
     player = a + x
     croupier = b + c
-    bet = 0
+    bet = None
     bet = int(input('Place your bet ₽: '))
     if bank < bet:
         print('You bet more than you contributed')
