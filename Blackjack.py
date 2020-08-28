@@ -4,7 +4,7 @@ hand = [6, 7, 8, 9, 10, 2, 3, 4, 11] * 4
 random.shuffle(hand)
 
 
-bank = int(input('How much do you buy chips: '))
+bank = float(input('How much do you buy chips: '))
 
 while bank >= 0:
     a = current = hand.pop()
@@ -19,7 +19,7 @@ while bank >= 0:
     player = a + x
     croupier = b + c
     bet = None
-    bet = int(input('Place your bet ₽: '))
+    bet = float(input('Place your bet ₽: '))
     if bank < bet:
         print('You bet more than you contributed')
     else:
