@@ -6,10 +6,11 @@ random.shuffle(hand)
 bank = int(input('How much do you buy chips: '))
 
 while bank >= 0:
-    a = current = hand.pop()
-    x = current = hand.pop()
-    b = current = hand.pop()
-    c = current = hand.pop()
+    current = hand.pop()
+    a = current0 = hand.pop()
+    x = current1 = hand.pop()
+    b = current2 = hand.pop()
+    c = current3 = hand.pop()
 
     print('Available for bet', bank)
     print('You wanna play?')
@@ -19,6 +20,7 @@ while bank >= 0:
     croupier = b + c
     bet = None
     bet = int(input('Place your bet ₽: '))
+    bank -= bet
     if bank < bet:
         print('You bet more than you contributed')
     elif bank >= bet:
@@ -32,7 +34,6 @@ while bank >= 0:
         elif player > 21:
             print('You have scored %d points' % player)
             print('--- Your bet is lost:', bet)
-            bank -= bet
 
         while player < 21:
             if croupier >= 17:
@@ -44,7 +45,6 @@ while bank >= 0:
                 if player > 21:
                     print('You have scored %d points' % player)
                     print('--- Your bet is lost:', bet)
-                    bank -= bet
                 elif player == 21:
                     print('Finished the game with %d points' % player)
                     print('+++ Your winnings: ', bet * 2)
@@ -68,11 +68,11 @@ while bank >= 0:
                     print("Exactly!!!")
                     print('Finished the game with %d points' % player)
                     print("You haven't won anything, but you haven't lost either")
+                    bank += bet
                     break
                 elif player < croupier:
                     print('The dealer scored %d' % croupier)
                     print('--- Your bet is lost:', bet)
-                    bank -= bet
                     break
                 elif player > croupier:
                     print('Finished the game with %d points' % player)
