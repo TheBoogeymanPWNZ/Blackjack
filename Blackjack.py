@@ -11,7 +11,6 @@ while bank >= 0:
     x = current1 = hand.pop()
     b = current2 = hand.pop()
     c = current3 = hand.pop()
-
     print('Available for bet', bank)
     print('You wanna play?')
     player = None
@@ -20,7 +19,6 @@ while bank >= 0:
     croupier = b + c
     bet = None
     bet = int(input('Place your bet ₽: '))
-    bank -= bet
     if bank < bet:
         print('You bet more than you contributed')
     elif bank >= bet:
@@ -29,11 +27,12 @@ while bank >= 0:
 
         if player == 21:
             print('You have blackjack!!!')
-            print('Your winnings: ', bet * 1.5)
-            bank += bet
+            print('Your winnings: ', bet)
+            bank += bet * 1.5
         elif player > 21:
             print('You have scored %d points' % player)
             print('--- Your bet is lost:', bet)
+            bank -= bet
 
         while player < 21:
             if croupier >= 17:
@@ -45,10 +44,11 @@ while bank >= 0:
                 if player > 21:
                     print('You have scored %d points' % player)
                     print('--- Your bet is lost:', bet)
+                    bank -= bet
                 elif player == 21:
                     print('Finished the game with %d points' % player)
                     print('+++ Your winnings: ', bet * 2)
-                    bank += bet
+                    bank += bet * 2
                 else:
                     print('You have %d points' % player)
             elif choice == 'n':
@@ -62,20 +62,20 @@ while bank >= 0:
                     print('The dealer is too busy %d' % croupier)
                     print('Finished the game with %d points' % player)
                     print('+++ Your winnings: ', bet * 2)
-                    bank += bet
+                    bank += bet * 2
                     break
                 elif player == croupier:
                     print("Exactly!!!")
                     print('Finished the game with %d points' % player)
                     print("You haven't won anything, but you haven't lost either")
-                    bank += bet
                     break
                 elif player < croupier:
                     print('The dealer scored %d' % croupier)
                     print('--- Your bet is lost:', bet)
+                    bank -= bet
                     break
                 elif player > croupier:
                     print('Finished the game with %d points' % player)
                     print('+++ Your winnings: ', bet * 2)
-                    bank += bet
+                    bank += bet * 2
                     break
