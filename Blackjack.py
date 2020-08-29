@@ -39,7 +39,6 @@ while bank >= 0:
                 break
             choice = input('Need another card? y/n \n')
             if choice == 'y':
-                current = hand.pop()
                 print('You got the card %d' % current)
                 player += current
                 if player > 21:
@@ -69,7 +68,6 @@ while bank >= 0:
                     print("Exactly!!!")
                     print('Finished the game with %d points' % player)
                     print("You haven't won anything, but you haven't lost either")
-                    bank += bet
                     break
                 elif player < croupier:
                     print('The dealer scored %d' % croupier)
