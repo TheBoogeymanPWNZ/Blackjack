@@ -28,6 +28,7 @@ while bank >= 0:
         if player == 21:
             print('You have blackjack!!!')
             print('Your winnings: ', bet)
+            bank -= bet  # This is a crutch due to a re-bet error
             bank += bet * 1.5
         elif player > 21:
             print('You have scored %d points' % player)
@@ -48,6 +49,7 @@ while bank >= 0:
                 elif player == 21:
                     print('Finished the game with %d points' % player)
                     print('+++ Your winnings: ', bet * 2)
+                    bank -= bet
                     bank += bet * 2
                 else:
                     print('You have %d points' % player)
@@ -62,6 +64,7 @@ while bank >= 0:
                     print('The dealer is too busy %d' % croupier)
                     print('Finished the game with %d points' % player)
                     print('+++ Your winnings: ', bet * 2)
+                    bank -= bet
                     bank += bet * 2
                     break
                 elif player == croupier:
@@ -77,5 +80,6 @@ while bank >= 0:
                 elif player > croupier:
                     print('Finished the game with %d points' % player)
                     print('+++ Your winnings: ', bet * 2)
+                    bank -= bet
                     bank += bet * 2
                     break
