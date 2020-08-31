@@ -1,6 +1,6 @@
 import random
 
-hand = [6, 7, 8, 9, 10, 2, 3, 4, 11] * 4
+hand = [6, 7, 8, 9, 10, 2, 3, 4, 11] * 999
 random.shuffle(hand)
 
 bank = int(input('How much do you buy chips: '))
