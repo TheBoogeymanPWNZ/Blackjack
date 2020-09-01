@@ -29,10 +29,10 @@ while bank >= 0:
     croupier = b
     bet = None
     bet = int(input('Place your bet ₽: '))
-    bank -= bet
     if bank < bet:
         print('You bet more than you contributed')
     elif bank >= bet:
+        bank -= bet
         print('You were given two cards in total', a, learA, 'and', x, learX)
         print('The dealer took two cards, one of which', b, learB)
 
