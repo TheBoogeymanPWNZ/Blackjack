@@ -78,6 +78,7 @@ while bank >= 0:
                     print("Exactly!!!")
                     print('Finished the game with %d points' % player)
                     print("You haven't won anything, but you haven't lost either")
+                    bank += bet
                     break
                 elif player < croupier:
                     print('The dealer scored %d' % croupier)
