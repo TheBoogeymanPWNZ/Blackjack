@@ -34,7 +34,7 @@ while bank >= 0:
         print('You bet more than you contributed')
     elif bank >= bet:
         print('You were given two cards in total', a, learA, 'and', x, learX)
-        print('The dealer took two cards, one of which', b, learB, c, learC)
+        print('The dealer took two cards, one of which', b, learB)
 
         if player == 21:
             print('You have blackjack!!!')
