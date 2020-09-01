@@ -1,7 +1,7 @@
 import random
 
 hand = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11] * 999
-mast = ['♦','♥','♣','♠'] * 999
+mast = ['♦', '♥', '♣', '♠'] * 999
 
 random.shuffle(hand)
 
@@ -18,6 +18,9 @@ while bank >= 0:
     x = current1 = hand.pop()
     b = current2 = hand.pop()
     c = current3 = hand.pop()
+    if bank == 0:
+        print('You lost everything!')
+        break
     print('Available for bet', bank)
     print('You wanna play?')
     player = None
