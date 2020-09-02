@@ -8,7 +8,6 @@ random.shuffle(hand)
 bank = int(input('How much do you buy chips: '))
 
 while bank >= 0:
-    current = hand.pop()
     lear = mast.pop()
     learA = mast.pop()
     learX = mast.pop()
@@ -18,9 +17,11 @@ while bank >= 0:
     x = current1 = hand.pop()
     b = current2 = hand.pop()
     c = current3 = hand.pop()
+
     if bank == 0:
         print('You lost everything!')
         break
+
     print('Available for bet', bank)
     print('You wanna play?')
     player = None
@@ -29,6 +30,7 @@ while bank >= 0:
     croupier = b
     bet = None
     bet = int(input('Place your bet ₽: '))
+
     if bank < bet:
         print('You bet more than you contributed')
     elif bank >= bet:
@@ -48,7 +50,9 @@ while bank >= 0:
             if croupier >= 17:
                 break
             choice = input('Need another card? y/n \n')
+
             if choice == 'y':
+                current = hand.pop()
                 print('You got the card %d' % current, lear)
                 player += current
                 if player > 21:
@@ -62,6 +66,7 @@ while bank >= 0:
                     print('You have %d points' % player)
             elif choice == 'n':
                 print('The dealer reveals the second card', b, learB, 'and', c, learC)
+
             while choice == 'n':
                 croupier += c
                 if croupier < 17:
