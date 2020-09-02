@@ -8,7 +8,6 @@ random.shuffle(hand)
 bank = int(input('How much do you buy chips: '))
 
 while bank >= 0:
-    lear = mast.pop()
     learA = mast.pop()
     learX = mast.pop()
     learB = mast.pop()
@@ -53,6 +52,7 @@ while bank >= 0:
 
             if choice == 'y':
                 current = hand.pop()
+                lear = mast.pop()
                 print('You got the card %d' % current, lear)
                 player += current
                 if player > 21:
@@ -71,6 +71,7 @@ while bank >= 0:
                 croupier += c
                 if croupier < 17:
                     current = hand.pop()
+                    lear = mast.pop()
                     print('The dealer draws a card %d ' % current, lear)
                     croupier += current
                 elif croupier > 21:
