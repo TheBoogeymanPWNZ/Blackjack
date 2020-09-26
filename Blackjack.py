@@ -51,13 +51,6 @@ while bank >= 0:
             print('You have scored %d points' % player)
             print('--- Your bet is lost:', bet)
 
-        dable = input('Want to split the cards? y/n\n')
-        
-        if dable == 'y':
-            a1 = current0 = hand.pop()
-            x1 = current1 = hand.pop()
-            print('You were given two cards in total', a, learA, 'and', a1, learX)
-            print('You were given two cards in total', x, learA, 'and', x1, learX)
         while player < 21:
             if croupier >= 17:
                 break
