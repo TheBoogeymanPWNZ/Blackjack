@@ -18,6 +18,7 @@ def calc(bank):
 
 
 while bank >= 0:
+    
     learA = mast.pop()
     learX = mast.pop()
     learB = mast.pop()
